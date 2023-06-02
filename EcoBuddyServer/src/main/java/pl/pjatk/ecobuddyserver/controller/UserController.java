@@ -39,6 +39,4 @@ public class UserController {
         userService.deleteUserById(userId);
         return ResponseEntity.ok("User of id: " + userId + " has been deleted");
     }
-
-
 }
