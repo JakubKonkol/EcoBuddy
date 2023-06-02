@@ -13,12 +13,12 @@ import java.time.LocalDateTime;
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idTask;
     private String description;
     private Priority priority;
     private Status status;
     private LocalDateTime compltionDate;
     @ManyToOne (fetch = FetchType.EAGER)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "id_user")
     private User user;
 }

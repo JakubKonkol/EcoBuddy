@@ -11,7 +11,7 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idUser;
     private String nickname;
     private Long points;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")

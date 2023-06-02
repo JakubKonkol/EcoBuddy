@@ -52,3 +52,7 @@ drop table if exists event;
 drop table if exists task;
 drop table if exists user;
 drop table if exists user_task_history;
+alter table task drop foreign key FK7ilhurfgk0scjjdcym9gtfvc8;
+drop table if exists event;
+drop table if exists task;
+drop table if exists user;
