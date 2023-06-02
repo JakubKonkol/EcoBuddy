@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { BuddyViewComponent } from './components/buddy-view/buddy-view.component';
 import { HeaderViewComponent } from './components/header-view/header-view.component';
 import { SingleTaskViewComponent } from './components/single-task-view/single-task-view.component';
+import { DashboardViewComponent } from './components/dashboard-view/dashboard-view.component';
+import { EcoHomeViewComponent } from './components/eco-home-view/eco-home-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BuddyViewComponent,
     HeaderViewComponent,
-    SingleTaskViewComponent
+    SingleTaskViewComponent,
+    DashboardViewComponent,
+    EcoHomeViewComponent
   ],
   imports: [
     BrowserModule,
