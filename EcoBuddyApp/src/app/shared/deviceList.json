@@ -1,0 +1,62 @@
+[
+  {
+    "nazwa": "Telewizor",
+    "pobor_mocy": 150
+  },
+  {
+    "nazwa": "Laptop",
+    "pobor_mocy": 75
+  },
+  {
+    "nazwa": "Lampa",
+    "pobor_mocy": 25
+  },
+  {
+    "nazwa": "Klimatyzator",
+    "pobor_mocy": 1000
+  },
+  {
+    "nazwa": "Pralka",
+    "pobor_mocy": 500
+  },
+  {
+    "nazwa": "Mikrofalówka",
+    "pobor_mocy": 800
+  },
+  {
+    "nazwa": "Odkurzacz",
+    "pobor_mocy": 1200
+  },
+  {
+    "nazwa": "Suszarka",
+    "pobor_mocy": 1500
+  },
+  {
+    "nazwa": "Lodówka",
+    "pobor_mocy": 200
+  },
+  {
+    "nazwa": "Kawiarka",
+    "pobor_mocy": 100
+  },
+  {
+    "nazwa": "Żelazko",
+    "pobor_mocy": 800
+  },
+  {
+    "nazwa": "Kamera",
+    "pobor_mocy": 300
+  },
+  {
+    "nazwa": "Konsola",
+    "pobor_mocy": 150
+  },
+  {
+    "nazwa": "Router",
+    "pobor_mocy": 10
+  },
+  {
+    "nazwa": "Głośniki",
+    "pobor_mocy": 50
+  }
+]

@@ -8,6 +8,7 @@ import { HeaderViewComponent } from './components/header-view/header-view.compon
 import { SingleTaskViewComponent } from './components/single-task-view/single-task-view.component';
 import { DashboardViewComponent } from './components/dashboard-view/dashboard-view.component';
 import { EcoHomeViewComponent } from './components/eco-home-view/eco-home-view.component';
+import { SingleDeviceViewComponent } from './components/single-device-view/single-device-view.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { EcoHomeViewComponent } from './components/eco-home-view/eco-home-view.c
     HeaderViewComponent,
     SingleTaskViewComponent,
     DashboardViewComponent,
-    EcoHomeViewComponent
+    EcoHomeViewComponent,
+    SingleDeviceViewComponent
   ],
   imports: [
     BrowserModule,
