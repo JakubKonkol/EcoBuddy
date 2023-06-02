@@ -10,26 +10,28 @@ import java.util.List;
 
 @RestController
 
-@RequestMapping("/event")
 
+@RequestMapping("/event")
 public class EventController {
     EventService eventService;
 
     @Autowired
     public EventController(EventService eventService){this.eventService = eventService;}
-
-
-    @GetMapping
+        @GetMapping
+         public ResponseEntity<List<Event>> getAllEvent(){
+         return ResponseEntity.ok(eventService.getAllEvent());
+     }
+    @GetMapping("/getAll")
     public ResponseEntity<List<Event>> getAllEvent(){
         return ResponseEntity.ok(eventService.getAllEvent());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getEventById/{id}")
     public ResponseEntity<Event> getEvent(@PathVariable("id") Long id){
         return ResponseEntity.ok(eventService.getEvent(id));
     }
-    @PostMapping
 
+    @PostMapping("/create")
     public ResponseEntity<Event>  createEvent(@RequestBody Event event){
         return  ResponseEntity.ok(eventService.createEvent(event));
     }
