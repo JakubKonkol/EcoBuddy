@@ -14,7 +14,7 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String desc;
+    private String description;
     private Priority priority;
     private Status status;
 }

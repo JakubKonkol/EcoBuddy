@@ -6,6 +6,7 @@ import pl.pjatk.ecobuddyserver.model.Task;
 import pl.pjatk.ecobuddyserver.repository.TaskRepository;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Random;
 
 @Service
 @RequiredArgsConstructor
@@ -39,8 +40,8 @@ public class TaskService {
 
         Task taskToUpdate = optionalTask.get();
 
-        if(updatedTask.getDesc() != null) {
-            taskToUpdate.setDesc(updatedTask.getDesc());
+        if(updatedTask.getDescription() != null) {
+            taskToUpdate.setDescription(updatedTask.getDescription());
         }
 
         if(updatedTask.getPriority() != null) {
@@ -60,4 +61,16 @@ public class TaskService {
         taskRepository.delete(optionalTask.get());
     }
 
+    public List<Task> getDailyTasks() {
+        List<Task> randomTasks = taskRepository.findRandomTasks();
+        Random random = new Random();
+
+        for(Task t: randomTasks) {
+            int randomNumber = random.nextInt(20);
+            String descriptionWithValue = String.format(t.getDescription(), randomNumber);
+            t.setDescription(descriptionWithValue);
+        }
+
+        return randomTasks;
+    }
 }
