@@ -39,8 +39,8 @@ public class TaskService {
 
         Task taskToUpdate = optionalTask.get();
 
-        if(updatedTask.getDesc() != null) {
-            taskToUpdate.setDesc(updatedTask.getDesc());
+        if(updatedTask.getDescription() != null) {
+            taskToUpdate.setDescription(updatedTask.getDescription());
         }
 
         if(updatedTask.getPriority() != null) {
