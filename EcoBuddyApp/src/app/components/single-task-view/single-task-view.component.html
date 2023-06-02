@@ -1,4 +1,4 @@
 <div class="container">
   <p class="desc"> {{task.description }}</p>
-  <p class="priority"> {{task.priority}}</p>
+  <p class="priority" [ngClass]="getClassForTask(task)"> {{task.priority}}</p>
 </div>

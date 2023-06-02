@@ -1,0 +1,27 @@
+.container{
+  background-color: #31c52f;
+  margin: 1rem;
+  border-radius: 10px;
+  padding: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.desc{
+  font-family: "Helvetica Neue Medium Extended", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bolder;
+}
+.priority{
+  font-size: 0.9rem;
+  text-align: center;
+  font-weight: bold;
+}
+.high{
+  color: red;
+}
+medium{
+  color: orange;
+}
+.low{
+  color: gray;
+}
