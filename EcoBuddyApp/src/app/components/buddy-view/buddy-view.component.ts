@@ -10,9 +10,9 @@ import {EStatus} from "../../shared/EStatus";
 })
 export class BuddyViewComponent {
   tasks: Task[] = [
-    new Task(1, "Task 1", EPriority.HIGH, EStatus.TODO),
-    new Task(2, "Task 2", EPriority.MEDIUM, EStatus.IN_PROGRESS),
-    new Task(3, "Task 3", EPriority.LOW, EStatus.DONE)
+    new Task(1, "Zbierz 5 butelek", EPriority.LOW, EStatus.TODO),
+    new Task(2, "Wyrzuc smieci za sasiada", EPriority.MEDIUM, EStatus.IN_PROGRESS),
+    new Task(3, "Posprzataj ocean", EPriority.HIGH, EStatus.DONE)
   ]
 
 }

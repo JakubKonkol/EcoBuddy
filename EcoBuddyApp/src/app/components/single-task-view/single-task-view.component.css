@@ -1,13 +1,12 @@
 .container{
-  background-color: #31c52f;
   margin: 1rem;
   border-radius: 10px;
   padding: 0.5rem;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 .desc{
   font-family: "Helvetica Neue Medium Extended", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   text-align: center;
   font-weight: bolder;
 }
@@ -17,11 +16,18 @@
   font-weight: bold;
 }
 .high{
-  color: red;
+  background-color: #f85656;
 }
-medium{
-  color: orange;
+.medium{
+  background-color: #ffb73c;
 }
 .low{
-  color: gray;
+  background-color: #07a207;
 }
+.container:hover{
+  transform: scale(1.03);
+  transition: ease-in-out 0.2s;
+  cursor: pointer;
+}
+/*DODAJ STYL DLA HOVER NOT HOVER*/
+
