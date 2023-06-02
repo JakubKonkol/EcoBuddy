@@ -3,10 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BuddyViewComponent } from './components/buddy-view/buddy-view.component';
+import { HeaderViewComponent } from './components/header-view/header-view.component';
+import { SingleTaskViewComponent } from './components/single-task-view/single-task-view.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BuddyViewComponent,
+    HeaderViewComponent,
+    SingleTaskViewComponent
   ],
   imports: [
     BrowserModule,
