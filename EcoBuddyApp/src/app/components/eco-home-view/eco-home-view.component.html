@@ -1,13 +1,30 @@
 <div class="container">
   <div class="devices">
     <div class="all-devices">
-      *all devices*
+      <app-single-device-view
+        *ngFor="let device of devices"
+        [device]="device"
+        (click)="selectDevice(device)"
+        />
     </div>
     <div class="your-devices">
-      *your devices*
+      <app-single-device-view
+        *ngFor="let device of yourDevices"
+        [device]="device"
+        (click)="removeDevice(device)"
+        />
     </div>
   </div>
   <div class="result">
     *result*
+  </div>
+</div>
+
+<div class="modal" *ngIf="shouldModalBeActive && selectedDevice != undefined">
+  <div class="modal-content">
+    <img src="assets/responsive.png" width="100px" height="100px" rel="device">
+    <h1> {{selectedDevice.name}}</h1>
+    <p> {{selectedDevice.powerUsage}}kW/h</p>
+    <button (click)="addDevice()"> Add Device </button>
   </div>
 </div>

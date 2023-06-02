@@ -1,0 +1,23 @@
+.container{
+  height: 100px;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #07a207;
+  border-radius: 10px;
+  padding: 0.1rem;
+}
+.container:hover{
+  background-color: #0bd60b;
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: ease-in-out 0.2s;
+}
+.device-name{
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0.5rem;
+  text-align: center;
+}
