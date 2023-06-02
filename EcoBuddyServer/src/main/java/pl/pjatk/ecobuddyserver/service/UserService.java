@@ -35,7 +35,7 @@ public class UserService {
             User updatedUser = userRepository.findById(id).orElseThrow();
             updatedUser.setNickname(user.getNickname());
             updatedUser.setPoints(user.getPoints());
-//            updatedUser.setTaskHistory(user.getTaskHistory()); //TODO: dodać po stworzeniu taska
+            updatedUser.setTaskHistory(user.getTaskHistory()); //TODO: dodać po stworzeniu taska
             return updatedUser;
         }
 
