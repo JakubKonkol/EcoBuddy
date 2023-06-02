@@ -35,9 +35,15 @@ public class TaskController {
         return ResponseEntity.ok(taskService.updateTaskById(taskId, task));
     }
 
-    @DeleteMapping("/deleteById{taskId}")
+    @DeleteMapping("/deleteById/{taskId}")
     public ResponseEntity<String> deleteTask(@PathVariable long taskId){
         taskService.deleteTaskById(taskId);
         return ResponseEntity.ok("Task of id: " + taskId + " has been deleted");
     }
+
+    @PostMapping("/dailyTasks")
+    public ResponseEntity<List<Task>> getDailyTasks(){
+        return ResponseEntity.ok(taskService.getDailyTasks());
+    }
+
 }
