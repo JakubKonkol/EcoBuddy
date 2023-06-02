@@ -5,8 +5,9 @@
     </div>
   </div>
   <div class="tasks">
-    <div class="singleTask">
-
-    </div>
+    <app-single-task-view
+      *ngFor="let task of tasks"
+      [task]="task"
+    />
   </div>
 </div>
