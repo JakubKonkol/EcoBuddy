@@ -1,0 +1,27 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  background-color: #598f58;
+  border-radius: 10px;
+}
+.buddy{
+  flex-basis: 50%;
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.buddy-img{
+  width: 75%;
+  height: 75%;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tasks{
+  flex-basis: 50%;
+  border: 1px solid red;
+}
