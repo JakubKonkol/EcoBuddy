@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.pjatk.ecobuddyserver.model.Task;
 import pl.pjatk.ecobuddyserver.repository.TaskRepository;
+
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Random;
@@ -47,8 +49,15 @@ public class TaskService {
         if(updatedTask.getPriority() != null) {
             taskToUpdate.setPriority(updatedTask.getPriority());
         }
+        if(updatedTask.getStatus() != null) {
 
-        return taskToUpdate;
+            taskToUpdate.setStatus(updatedTask.getStatus());
+        }
+        if(updatedTask.getCompltionDate() != null){
+            taskToUpdate.setCompltionDate(updatedTask.getCompltionDate());
+        }
+
+        return taskRepository.save(taskToUpdate);
     }
 
     public void deleteTaskById(long taskId) {
@@ -72,5 +81,8 @@ public class TaskService {
         }
 
         return randomTasks;
+    }
+    public List<Task> getByCompltionDate(LocalDateTime compltionDate ){
+        return taskRepository.getByCompltionDate(compltionDate);
     }
 }

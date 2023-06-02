@@ -7,6 +7,7 @@ import pl.pjatk.ecobuddyserver.model.Task;
 import pl.pjatk.ecobuddyserver.service.TaskService;
 
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -45,4 +46,11 @@ public class TaskController {
     public ResponseEntity<List<Task>> getDailyTasks(){
         return ResponseEntity.ok(taskService.getDailyTasks());
     }
+
+@GetMapping("/{compltionDate}")
+    public ResponseEntity<List<Task>> getByCompltionDate(@PathVariable("compltionDate")LocalDateTime compltionDate){
+        return ResponseEntity.ok(taskService.getByCompltionDate(compltionDate));
+}
+
+
 }

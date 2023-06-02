@@ -5,10 +5,15 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import pl.pjatk.ecobuddyserver.model.Task;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface TaskRepository extends JpaRepository<Task, Long> {
     @Query(value = "SELECT * FROM task ORDER BY RAND() LIMIT 3", nativeQuery = true)
     List<Task> findRandomTasks();
+
+
+    List<Task> getByCompltionDate(LocalDateTime compltionDate);
 }
