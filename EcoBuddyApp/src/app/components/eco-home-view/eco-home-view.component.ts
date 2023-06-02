@@ -25,11 +25,21 @@ export class EcoHomeViewComponent implements OnInit{
     this.yourDevices.push(this.selectedDevice);
     this.selectedDevice = undefined;
     this.shouldModalBeActive = false;
-
-
   }
 
   removeDevice(device: Device) {
     this.yourDevices.splice(this.yourDevices.indexOf(device), 1);
+  }
+  calculateDailyPowerUsage(): number {
+    let total = 0;
+    for(let device of this.yourDevices){
+      total += device.powerUsage * 12; //TODO: change to user input
+    }
+
+    return Math.round((total + Number.EPSILON) * 100) / 100
+  }
+  closeModal() {
+    this.selectedDevice = undefined;
+    this.shouldModalBeActive = false;
   }
 }
