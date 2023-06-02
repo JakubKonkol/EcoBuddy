@@ -48,7 +48,7 @@ public class TaskService {
             taskToUpdate.setPriority(updatedTask.getPriority());
         }
 
-        return taskToUpdate;
+        return taskRepository.save(taskToUpdate);
     }
 
     public void deleteTaskById(long taskId) {
