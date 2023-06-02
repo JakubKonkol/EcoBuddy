@@ -41,7 +41,7 @@ public class TaskController {
         return ResponseEntity.ok("Task of id: " + taskId + " has been deleted");
     }
 
-    @PostMapping("/getDailyTasks")
+    @GetMapping("/dailyTasks")
     public ResponseEntity<List<Task>> getDailyTasks(){
         return ResponseEntity.ok(taskService.getDailyTasks());
     }
