@@ -13,7 +13,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nickname;
-    private Double points;
+    private Long points;
     @OneToMany(fetch = FetchType.LAZY)
     private List<Task> taskHistory;
 }
