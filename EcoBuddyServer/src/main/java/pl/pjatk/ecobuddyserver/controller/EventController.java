@@ -9,32 +9,39 @@ import pl.pjatk.ecobuddyserver.service.EventService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/event/")
+
+
+@RequestMapping("/event")
 public class EventController {
     EventService eventService;
 
     @Autowired
     public EventController(EventService eventService){this.eventService = eventService;}
-@GetMapping
-public ResponseEntity<List<Event>> getAllEvent(){
+        @GetMapping
+         public ResponseEntity<List<Event>> getAllEvent(){
+         return ResponseEntity.ok(eventService.getAllEvent());
+     }
+    @GetMapping("/getAll")
+    public ResponseEntity<List<Event>> getAllEvent(){
         return ResponseEntity.ok(eventService.getAllEvent());
-}
+    }
 
-@GetMapping("/{id}")
-public ResponseEntity<Event> getEvent(@PathVariable("id") Long id){
+    @GetMapping("/getEventById/{id}")
+    public ResponseEntity<Event> getEvent(@PathVariable("id") Long id){
         return ResponseEntity.ok(eventService.getEvent(id));
-}
-    @PostMapping
+    }
+
+    @PostMapping("/create")
     public ResponseEntity<Event>  createEvent(@RequestBody Event event){
         return  ResponseEntity.ok(eventService.createEvent(event));
     }
 
-    @DeleteMapping
+    @DeleteMapping("/delete")
     public ResponseEntity<String> deleteEvent(@RequestParam("id") Long id){
         eventService.deleteEvent(id);
         return ResponseEntity.ok("ok");
     }
-    @PutMapping("{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<Event> updateEvent (@RequestBody Event event, @PathVariable("id") Long id){
        return  ResponseEntity.ok((eventService.updateEvent(id,event)));
     }
