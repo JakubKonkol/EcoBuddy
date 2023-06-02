@@ -3,20 +3,17 @@ package pl.pjatk.ecobuddyserver.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.pjatk.ecobuddyserver.model.Task;
-import pl.pjatk.ecobuddyserver.repository.EventRepository;
 import pl.pjatk.ecobuddyserver.repository.TaskRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 import java.util.Random;
 
 @Service
 @RequiredArgsConstructor
 public class TaskService {
     private final TaskRepository taskRepository;
-    private final EventRepository eventRepository;
 
     public Task save(Task task) {
         return taskRepository.save(task);
@@ -59,7 +56,8 @@ public class TaskService {
         if(updatedTask.getCompltionDate() != null){
             taskToUpdate.setCompltionDate(updatedTask.getCompltionDate());
         }
-        return taskToUpdate;
+
+        return taskRepository.save(taskToUpdate);
     }
 
     public void deleteTaskById(long taskId) {
