@@ -6,5 +6,5 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./eco-home-result-view.component.css']
 })
 export class EcoHomeResultViewComponent {
-  @Input() userPowerUsage!: number;
+  @Input() userPowerUsage!: number ;
 }
