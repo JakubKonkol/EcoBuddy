@@ -3,6 +3,7 @@ package pl.pjatk.ecobuddyserver.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pl.pjatk.ecobuddyserver.model.Event;
 import pl.pjatk.ecobuddyserver.model.User;
 import pl.pjatk.ecobuddyserver.service.UserService;
 
@@ -35,7 +36,7 @@ public class UserController {
     }
 
     @DeleteMapping("/deleteById{userId}")
-    public ResponseEntity<String> deleteTask(@PathVariable long userId) {
+    public ResponseEntity<String> deleteUser(@PathVariable long userId) {
         userService.deleteUserById(userId);
         return ResponseEntity.ok("User of id: " + userId + " has been deleted");
     }
@@ -45,5 +46,21 @@ public class UserController {
                                                  @PathVariable Long points) throws Exception {
         userService.updateUserPoints(userId,points);
         return ResponseEntity.ok("Added " + points + " to user " + userId + " account");
+    }
+
+    @PostMapping("createEvent/{userId}")
+    public ResponseEntity<Event> createEvent(@PathVariable Long userId, @RequestBody Event event) throws Exception {
+        return ResponseEntity.ok(userService.createEvent(userId, event));
+    }
+
+    @PutMapping("joinEvent/{eventId}/{userId}")
+    public ResponseEntity<Event> joinEvent(@PathVariable Long eventId, @PathVariable Long userId) throws Exception {
+        return ResponseEntity.ok(userService.joinEvent(eventId, userId));
+    }
+
+    @PutMapping("endEvent/{eventId}")
+    public ResponseEntity<String> endEvent(Long eventId) {
+        userService.endEvent(eventId);
+        return ResponseEntity.ok("Event " + eventId + " został zakończony");
     }
 }
