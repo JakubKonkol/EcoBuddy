@@ -12,8 +12,8 @@ public class Goal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idGoal;
     private String name;
-    private EventType type;
     private String city;
+    private EventType type;
     private double moneyCollected;
     private double moneyNeeded;
     private String foundationName;

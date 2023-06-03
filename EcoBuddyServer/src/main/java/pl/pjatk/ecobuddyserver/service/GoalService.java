@@ -61,7 +61,8 @@ public class GoalService {
         if (updatedGoal.getMoneyNeeded() != 0){
             goalToUpdate.setMoneyNeeded(updatedGoal.getMoneyNeeded());
         }
-        if(updatedGoal.getCity() != null){
+
+        if (updatedGoal.getCity() != null){
             goalToUpdate.setCity(updatedGoal.getCity());
         }
         return goalToUpdate;
