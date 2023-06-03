@@ -12,7 +12,8 @@ import { SingleDeviceViewComponent } from './components/single-device-view/singl
 import { EcoHomeResultViewComponent } from './components/eco-home-result-view/eco-home-result-view.component';
 import { ListekComponent } from './components/listek/listek.component';
 import { RouterModule, Routes } from '@angular/router';
-import { MainBuddyViewComponent } from './components/main-buddy-view/main-buddy-view.component'
+import { MainBuddyViewComponent } from './components/main-buddy-view/main-buddy-view.component';
+import { FundationViewComponent } from './components/fundation-view/fundation-view.component'
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MainBuddyViewComponent } from './components/main-buddy-view/main-buddy-
     SingleDeviceViewComponent,
     EcoHomeResultViewComponent,
     ListekComponent,
-    MainBuddyViewComponent
+    MainBuddyViewComponent,
+    FundationViewComponent
   ],
   imports: [
     BrowserModule,
