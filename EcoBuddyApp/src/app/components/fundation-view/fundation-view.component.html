@@ -4,6 +4,7 @@
     <div class="goals">
       <div class="single-goal" *ngFor="let goal of goals">
         <div class="goal-title">{{goal.name}} </div>
+        <div class="goal-fundation"> {{goal.fundation}}</div>
         <div class="goal-city">{{goal.city}}</div>
         <div class="goal-summary">Zebrane {{goal.collectedAmount}}/{{goal.targetAmount}}PLN</div>
       </div>
