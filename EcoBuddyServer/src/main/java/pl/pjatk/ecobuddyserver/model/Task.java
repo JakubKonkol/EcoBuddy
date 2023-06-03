@@ -17,7 +17,7 @@ public class Task {
     private String description;
     private Priority priority;
     private Status status;
-    private LocalDateTime compltionDate;
+    private LocalDateTime completionDate;
     @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn(name = "id_user")
     private User user;

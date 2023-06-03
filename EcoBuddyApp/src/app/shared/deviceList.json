@@ -1,62 +1,77 @@
 [
   {
     "nazwa": "Telewizor",
-    "pobor_mocy": 150
+    "pobor_mocy": 150,
+    "image": "assets/icons/tv.png"
   },
   {
     "nazwa": "Laptop",
-    "pobor_mocy": 75
+    "pobor_mocy": 75,
+    "image": "assets/icons/laptop.png"
   },
   {
     "nazwa": "Lampa",
-    "pobor_mocy": 25
+    "pobor_mocy": 25,
+    "image": "assets/icons/desk-lamp.png"
   },
   {
     "nazwa": "Klimatyzator",
-    "pobor_mocy": 1000
+    "pobor_mocy": 1000,
+    "image": "assets/icons/air-conditioner.png"
   },
   {
     "nazwa": "Pralka",
-    "pobor_mocy": 500
+    "pobor_mocy": 500,
+    "image": "assets/icons/washing-machine.png"
   },
   {
     "nazwa": "Mikrofalówka",
-    "pobor_mocy": 800
+    "pobor_mocy": 800,
+    "image": "assets/icons/oven.png"
   },
   {
     "nazwa": "Odkurzacz",
-    "pobor_mocy": 1200
+    "pobor_mocy": 1200,
+    "image": "assets/icons/vacuum.png"
   },
   {
     "nazwa": "Suszarka",
-    "pobor_mocy": 1500
+    "pobor_mocy": 1500,
+    "image": "assets/icons/dryer.png"
   },
   {
     "nazwa": "Lodówka",
-    "pobor_mocy": 200
+    "pobor_mocy": 200,
+    "image": "assets/icons/fridge.png"
   },
   {
     "nazwa": "Kawiarka",
-    "pobor_mocy": 100
+    "pobor_mocy": 100,
+    "image": "assets/icons/coffee-machine.png"
   },
   {
     "nazwa": "Żelazko",
-    "pobor_mocy": 800
+    "pobor_mocy": 800,
+    "image": "assets/icons/iron.png"
   },
   {
     "nazwa": "Kamera",
-    "pobor_mocy": 300
+    "pobor_mocy": 300,
+    "image": "assets/icons/cctv-camera.png"
   },
   {
     "nazwa": "Konsola",
-    "pobor_mocy": 150
+    "pobor_mocy": 150,
+    "image": "assets/icons/game-console.png"
   },
   {
     "nazwa": "Router",
-    "pobor_mocy": 10
+    "pobor_mocy": 10,
+    "image": "assets/icons/wifi.png"
   },
   {
     "nazwa": "Głośniki",
-    "pobor_mocy": 50
+    "pobor_mocy": 50,
+    "image": "assets/icons/loud-speaker.png"
   }
 ]

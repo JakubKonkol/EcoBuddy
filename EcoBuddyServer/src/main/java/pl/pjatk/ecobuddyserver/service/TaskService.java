@@ -3,22 +3,17 @@ package pl.pjatk.ecobuddyserver.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.pjatk.ecobuddyserver.model.Task;
-import pl.pjatk.ecobuddyserver.model.User;
-import pl.pjatk.ecobuddyserver.model.enums.Status;
-import pl.pjatk.ecobuddyserver.repository.EventRepository;
 import pl.pjatk.ecobuddyserver.repository.TaskRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 import java.util.Random;
 
 @Service
 @RequiredArgsConstructor
 public class TaskService {
     private final TaskRepository taskRepository;
-    private final EventRepository eventRepository;
 
     public Task save(Task task) {
         return taskRepository.save(task);
@@ -58,10 +53,11 @@ public class TaskService {
 
             taskToUpdate.setStatus(updatedTask.getStatus());
         }
-        if(updatedTask.getCompltionDate() != null){
-            taskToUpdate.setCompltionDate(updatedTask.getCompltionDate());
+        if(updatedTask.getCompletionDate() != null){
+            taskToUpdate.setCompletionDate(updatedTask.getCompletionDate());
         }
-        return taskToUpdate;
+
+        return taskRepository.save(taskToUpdate);
     }
 
     public void deleteTaskById(long taskId) {
@@ -86,8 +82,8 @@ public class TaskService {
 
         return randomTasks;
     }
-    public List<Task> getByCompltionDate(LocalDateTime compltionDate ){
-        return taskRepository.getByCompltionDate(compltionDate);
+    public List<Task> getByCompletionDate(LocalDateTime completionDate ){
+        return taskRepository.getByCompletionDate(completionDate);
     }
 
 

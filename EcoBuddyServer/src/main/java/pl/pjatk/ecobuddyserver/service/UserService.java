@@ -7,6 +7,7 @@ import pl.pjatk.ecobuddyserver.repository.UserRepository;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -33,12 +34,13 @@ public class UserService {
     public User updateUserById(long id, User user) throws Exception {
         if (user != null) {
             User updatedUser = userRepository.findById(id).orElseThrow();
+            updatedUser.setId(id);
             updatedUser.setNickname(user.getNickname());
             updatedUser.setPoints(user.getPoints());
-            updatedUser.setTaskHistory(user.getTaskHistory()); //TODO: dodać po stworzeniu taska
+            updatedUser.setTaskHistory(user.getTaskHistory());
+            userRepository.save(updatedUser);
             return updatedUser;
         }
-
         throw new Exception("Something went wrong");
     }
 
@@ -52,4 +54,11 @@ public class UserService {
         userRepository.delete(optionalUser.get());
     }
 
+    public void updateUserPoints(Long id, Long points) throws Exception {
+        Optional<User> user = userRepository.findById(id);
+        if (user.isPresent()){
+            user.get().setPoints((user.get().getPoints()) + points);
+            updateUserById(id, user.get());
+        }
+    }
 }
