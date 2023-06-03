@@ -49,7 +49,6 @@ public class UserController {
     @PutMapping("/addPoint/{userId}")
     public ResponseEntity<User> addPoint(@PathVariable long userId) throws Exception {
         return ResponseEntity.ok(userService.addOneUserPoint(userId));
-
     }
 
 }
