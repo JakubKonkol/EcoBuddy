@@ -34,7 +34,7 @@ public class UserService {
     public User updateUserById(long id, User user) throws Exception {
         if (user != null) {
             User updatedUser = userRepository.findById(id).orElseThrow();
-            updatedUser.setId(id);
+            updatedUser.setIdUser(id);
             updatedUser.setNickname(user.getNickname());
             updatedUser.setPoints(user.getPoints());
             updatedUser.setTaskHistory(user.getTaskHistory());
