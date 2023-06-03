@@ -89,6 +89,9 @@ public class UserService {
             user.get().setUserStatus(userStatus);
             updateUserById(id, user.get());
         }
+        else {
+            throw new NoSuchElementException();
+        }
     }
     public Event createEvent(Long userId, Event event) throws Exception {
         updateUserStatus(userId, UserStatus.HOST);
@@ -97,6 +100,7 @@ public class UserService {
         Event newEvent = eventRepository.save(event);
         host.setEvent(newEvent);
         newEvent.getParticipants().add(host);
+        userRepository.save(host);
         return eventRepository.save(newEvent);
     }
 
@@ -109,6 +113,7 @@ public class UserService {
         }
         updateUserStatus(user.get().getIdUser(), UserStatus.PARTICIPANT);
         user.get().setEvent(event.get());
+        userRepository.save(user.get());
         event.get().getParticipants().add(user.get());
         return eventRepository.save(event.get());
     }
@@ -132,15 +137,15 @@ public class UserService {
         event.get().setCompleted(true);
         event.get().getParticipants().forEach(p -> {
             try {
-                if (p.getUserStatus().equals(UserStatus.HOST)) {
+/*                if (p.getUserStatus().equals(UserStatus.HOST)) {
                     updateUserStatus(p.getIdUser(), UserStatus.NEUTRAL);
-                }
+                }*/
                 updateUserStatus(p.getIdUser(), UserStatus.NEUTRAL);
                 p.setEvent(null); //TODO: sprawdzic czy null dla tego eventu czy dal wszystkich
+                userRepository.save(p);
             } catch (Exception e) {
                 throw new RuntimeException(e.getMessage());
             }
-            event.get().setParticipants(null);
             eventRepository.save(event.get());
         });
     }
