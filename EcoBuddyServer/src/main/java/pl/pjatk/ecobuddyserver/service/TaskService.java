@@ -45,18 +45,6 @@ public class TaskService {
         if(updatedTask.getDescription() != null) {
             taskToUpdate.setDescription(updatedTask.getDescription());
         }
-
-        if(updatedTask.getPriority() != null) {
-            taskToUpdate.setPriority(updatedTask.getPriority());
-        }
-        if(updatedTask.getStatus() != null) {
-
-            taskToUpdate.setStatus(updatedTask.getStatus());
-        }
-        if(updatedTask.getCompletionDate() != null){
-            taskToUpdate.setCompletionDate(updatedTask.getCompletionDate());
-        }
-
         return taskRepository.save(taskToUpdate);
     }
 
@@ -82,9 +70,4 @@ public class TaskService {
 
         return randomTasks;
     }
-    public List<Task> getByCompletionDate(LocalDateTime completionDate ){
-        return taskRepository.getByCompletionDate(completionDate);
-    }
-
-
 }
