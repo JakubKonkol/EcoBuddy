@@ -1,9 +1,10 @@
 <div class="container">
   <div class="header">
-    <div class="header-item" (click)="setViewState('ECOHOME')"> <img src="assets/house.png" height="25px" width="25px"> EcoHome </div>
     <div class="header-item" (click)="setViewState('EVENT')"> <img src="assets/event.png" height="25px" width="25px"> Events </div>
+    <div class="header-item" (click)="setViewState('ECOHOME')"> <img src="assets/house.png" height="25px" width="25px"> EcoHome </div>
   </div>
   <div class="content">
       <app-eco-home-view *ngIf="viewState === 'ECOHOME'" />
+      <app-events-view *ngIf="viewState === 'EVENT'" />
   </div>
 </div>

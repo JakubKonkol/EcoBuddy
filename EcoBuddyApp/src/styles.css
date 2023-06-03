@@ -3,5 +3,7 @@
   margin: 0;
 }
 body{
-  background-color: #a9cca9;
+  /*background-color: #a9cca9;*/
+  background-image: url("src/assets/listek_background.png");
+  background-size: 100% 100%;
 }
