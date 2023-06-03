@@ -46,11 +46,4 @@ public class TaskController {
     public ResponseEntity<List<Task>> getDailyTasks(){
         return ResponseEntity.ok(taskService.getDailyTasks());
     }
-
-    @GetMapping("/{completionDate}")
-    public ResponseEntity<List<Task>> getByCompletion(@PathVariable LocalDateTime completionDate){
-        return ResponseEntity.ok(taskService.getByCompletionDate(completionDate));
-    }
-
-
 }

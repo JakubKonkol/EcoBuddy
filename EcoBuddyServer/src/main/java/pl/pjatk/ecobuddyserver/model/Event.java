@@ -1,25 +1,30 @@
 package pl.pjatk.ecobuddyserver.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+
 
 @Entity
 @Data
-@Table(name = "event")
 public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEvent;
-    @Column
     private String description;
-    @Column
     private String location;
-    @Column
     private LocalDateTime date;
-    @Column
     private String img;
+    private boolean completed;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "event")
+    @JsonIgnore
+    private List<User> participants = new ArrayList<>();
+
+
+
 
 }

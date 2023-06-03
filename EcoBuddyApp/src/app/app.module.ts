@@ -10,6 +10,10 @@ import { DashboardViewComponent } from './components/dashboard-view/dashboard-vi
 import { EcoHomeViewComponent } from './components/eco-home-view/eco-home-view.component';
 import { SingleDeviceViewComponent } from './components/single-device-view/single-device-view.component';
 import { EcoHomeResultViewComponent } from './components/eco-home-result-view/eco-home-result-view.component';
+import { ListekComponent } from './components/listek/listek.component';
+import { RouterModule, Routes } from '@angular/router';
+import { MainBuddyViewComponent } from './components/main-buddy-view/main-buddy-view.component';
+import { FundationViewComponent } from './components/fundation-view/fundation-view.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +24,10 @@ import { EcoHomeResultViewComponent } from './components/eco-home-result-view/ec
     DashboardViewComponent,
     EcoHomeViewComponent,
     SingleDeviceViewComponent,
-    EcoHomeResultViewComponent
+    EcoHomeResultViewComponent,
+    ListekComponent,
+    MainBuddyViewComponent,
+    FundationViewComponent
   ],
   imports: [
     BrowserModule,

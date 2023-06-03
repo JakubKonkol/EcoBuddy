@@ -12,7 +12,4 @@ import java.util.List;
 public interface TaskRepository extends JpaRepository<Task, Long> {
     @Query(value = "SELECT * FROM task ORDER BY RAND() LIMIT 3", nativeQuery = true)
     List<Task> findRandomTasks();
-
-
-    List<Task> getByCompletionDate(LocalDateTime completionDate);
 }
