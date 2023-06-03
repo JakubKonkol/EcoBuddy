@@ -1,9 +1,12 @@
 package pl.pjatk.ecobuddyserver.controller;
 
+import jakarta.persistence.PostUpdate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pl.pjatk.ecobuddyserver.model.Task;
 import pl.pjatk.ecobuddyserver.model.User;
+import pl.pjatk.ecobuddyserver.model.enums.Status;
 import pl.pjatk.ecobuddyserver.service.UserService;
 
 import java.util.List;
@@ -39,4 +42,6 @@ public class UserController {
         userService.deleteUserById(userId);
         return ResponseEntity.ok("User of id: " + userId + " has been deleted");
     }
+
+
 }

@@ -3,6 +3,8 @@ package pl.pjatk.ecobuddyserver.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.pjatk.ecobuddyserver.model.Task;
+import pl.pjatk.ecobuddyserver.model.User;
+import pl.pjatk.ecobuddyserver.model.enums.Status;
 import pl.pjatk.ecobuddyserver.repository.EventRepository;
 import pl.pjatk.ecobuddyserver.repository.TaskRepository;
 
@@ -87,4 +89,6 @@ public class TaskService {
     public List<Task> getByCompltionDate(LocalDateTime compltionDate ){
         return taskRepository.getByCompltionDate(compltionDate);
     }
+
+
 }
