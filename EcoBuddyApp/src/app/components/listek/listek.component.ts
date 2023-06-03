@@ -20,7 +20,7 @@ export class ListekComponent {
   ]
   selectedGoal: Goal = this.goals[Math.floor(Math.random() * this.goals.length)];
   shoudModalBeActive: boolean = false;
-  liscState: string = 'assets/listek.png';
+  liscState: string = 'assets/listek_fixed.png';
   goto(url:string){
     this.router.navigateByUrl(url).then(r => console.log(r));
   }
@@ -39,10 +39,10 @@ export class ListekComponent {
   setLiscState(arg: string) {
     switch (arg){
       case 'clicked':
-        this.liscState = 'assets/listek_clicked.png';
+        this.liscState = 'assets/listek_clicked_fixed.png';
         break;
       case 'default':
-        this.liscState = 'assets/listek.png';
+        this.liscState = 'assets/listek_fixed.png';
 
     }
   }

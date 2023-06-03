@@ -8,20 +8,21 @@
   height: 100vh;
   background-image: url("src/assets/listek_background.png");
   background-size: 100% 100%;
+  gap: 3rem;
 }
 .message{
   font-size: 1.5rem;
   font-family: "Helvetica Neue Medium Extended", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.25rem;
   color: #000;
   margin: 1rem;
 }
 .main-button{
   padding: 0.5rem 1rem;
   border: 0.15rem solid #0ab90a;
-  background-color: #48ab48;
-  font-size: 1rem;
-  border-radius: 10px;
+  background-color: #a2e080;
+  font-size: 1.75rem;
+  border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .side-button{
@@ -43,6 +44,16 @@
   margin: 0.5rem;
 }
 .listek-img{
-  transform: rotateZ(-30deg);
   border: none;
+  border-image: none;
+  position: relative;
+  display: inline-block;
+}
+.listek-img:hover{
+  cursor: pointer;
+  scale: 1.03;
+  transition: ease-in-out 0.2s;
+}
+.listek{
+  margin: 2.25rem;
 }
