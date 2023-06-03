@@ -1,3 +1,3 @@
 # EcoBuddy
 
-<img src='assets/logo.png' width='50px' height='50px'/>
+<img src='assets/logo.png' width='200px' height='200px'/> 

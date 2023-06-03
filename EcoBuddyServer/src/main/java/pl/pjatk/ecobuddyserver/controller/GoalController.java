@@ -49,7 +49,7 @@ public class GoalController {
         return ResponseEntity.ok(goal);
     }
 
-    @PatchMapping("/{id}/add-money")
+    @PutMapping("/{id}/add-money")
     public ResponseEntity<Goal> addMoneyToGoal(@PathVariable("id") Long id) {
         Goal goal = goalService.addMoney(id);
         return ResponseEntity.ok(goal);

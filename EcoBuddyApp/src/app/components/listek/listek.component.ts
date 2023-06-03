@@ -66,6 +66,14 @@ export class ListekComponent implements OnInit{
     let id = this.selectedGoal.idGoal;
     //req /goals/id/add-money  TODO
     this.userSupported = true;
+    this.goalService.addMoneyToGoal(this.selectedGoal).subscribe(data => {
+      console.log(data);
+    });
+    this.goalService.getGoals().subscribe(data => {
+      this.goals = data;
+      this.selectedGoal = this.goals[Math.floor(Math.random() * this.goals.length)];
+    });
+
   }
 
   ngOnInit(): void {

@@ -12,4 +12,7 @@ export class GoalService{
   public getGoals():Observable<IGoal[]>{
     return this.http.get<IGoal[]>(this.baseUrl);
   }
+  public addMoneyToGoal(goal: IGoal):Observable<IGoal>{
+    return this.http.put<IGoal>(this.baseUrl + '/' + goal.idGoal + '/add-money', goal);
+  }
 }
