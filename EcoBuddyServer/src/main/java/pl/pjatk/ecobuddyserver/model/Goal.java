@@ -13,6 +13,7 @@ public class Goal {
     private Long idGoal;
     private String name;
     private EventType type;
+    private String city;
     private double moneyCollected;
     private double moneyNeeded;
     private String foundationName;
