@@ -54,11 +54,26 @@ public class UserService {
         userRepository.delete(optionalUser.get());
     }
 
-    public void updateUserPoints(Long id, Long points) throws Exception {
+    public User updateUserPoints(Long id, Long points) throws Exception {
         Optional<User> user = userRepository.findById(id);
         if (user.isPresent()){
             user.get().setPoints((user.get().getPoints()) + points);
             updateUserById(id, user.get());
+            return user.get();
+        }
+        else{
+            throw new NoSuchElementException("There's no user with given id");
+        }
+    }
+    public User addOneUserPoint(Long id) throws Exception {
+        Optional<User> user = userRepository.findById(id);
+        if (user.isPresent()){
+            user.get().setPoints((user.get().getPoints()) + 1);
+            updateUserById(id, user.get());
+            return user.get();
+        }
+        else{
+            throw new NoSuchElementException("There's no user with given id");
         }
     }
 }

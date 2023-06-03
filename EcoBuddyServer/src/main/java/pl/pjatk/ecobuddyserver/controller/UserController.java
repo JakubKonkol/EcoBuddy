@@ -37,11 +37,18 @@ public class UserController {
         return ResponseEntity.ok(userService.updateUserById(userId, user));
     }
 
-    @DeleteMapping("/deleteById{userId}")
+    @DeleteMapping("/deleteById/{userId}")
     public ResponseEntity<String> deleteTask(@PathVariable long userId) {
         userService.deleteUserById(userId);
         return ResponseEntity.ok("User of id: " + userId + " has been deleted");
     }
-
+    @PutMapping("/updatePoints/{userId}/{userPoints}")
+    public ResponseEntity<User> updatePoints(@PathVariable long userId, @PathVariable long userPoints) throws Exception {
+        return ResponseEntity.ok(userService.updateUserPoints(userId, userPoints));
+    }
+    @PutMapping("/addPoint/{userId}")
+    public ResponseEntity<User> addPoint(@PathVariable long userId) throws Exception {
+        return ResponseEntity.ok(userService.addOneUserPoint(userId));
+    }
 
 }
