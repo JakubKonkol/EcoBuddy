@@ -1,6 +1,7 @@
 package pl.pjatk.ecobuddyserver.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -15,14 +16,14 @@ import java.util.List;
 public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idEvent;
+    private Long id;
     private String description;
     private String location;
     private LocalDateTime date;
     private String img;
     private boolean completed;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "event")
-    @JsonIgnore
+    @ManyToMany(mappedBy = "events")
+    @JsonIgnoreProperties("events")
     private List<User> participants = new ArrayList<>();
 
 
