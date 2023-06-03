@@ -16,6 +16,7 @@ import { MainBuddyViewComponent } from './components/main-buddy-view/main-buddy-
 import { FundationViewComponent } from './components/fundation-view/fundation-view.component';
 import { GoalSupportedModalComponent } from './components/goal-supported-modal/goal-supported-modal.component';
 import { EventsViewComponent } from './components/events-view/events-view.component'
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { EventsViewComponent } from './components/events-view/events-view.compon
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

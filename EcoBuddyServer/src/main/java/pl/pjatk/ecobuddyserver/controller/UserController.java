@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.pjatk.ecobuddyserver.model.Event;
 import pl.pjatk.ecobuddyserver.model.User;
-import pl.pjatk.ecobuddyserver.model.enums.Status;
+import pl.pjatk.ecobuddyserver.model.enums.UserStatus;
 import pl.pjatk.ecobuddyserver.service.UserService;
 
 import java.util.List;
