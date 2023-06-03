@@ -67,6 +67,7 @@ public class GoalService {
         if (updatedGoal.getCity() != null){
             goalToUpdate.setCity(updatedGoal.getCity());
         }
+        goalRepository.save(goalToUpdate);
         return goalToUpdate;
     }
 
