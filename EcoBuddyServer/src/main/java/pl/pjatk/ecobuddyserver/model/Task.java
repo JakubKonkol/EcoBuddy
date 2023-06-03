@@ -8,6 +8,6 @@ import lombok.Data;
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idTask;
+    private Long id;
     private String description;
 }

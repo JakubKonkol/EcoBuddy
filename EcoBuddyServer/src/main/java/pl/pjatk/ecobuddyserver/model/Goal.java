@@ -10,7 +10,7 @@ import pl.pjatk.ecobuddyserver.model.enums.EventType;
 public class Goal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idGoal;
+    private Long id;
     private String name;
     private String city;
     private EventType type;

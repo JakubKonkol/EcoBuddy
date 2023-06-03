@@ -19,6 +19,7 @@ public class UserService {
     private final EventRepository eventRepository;
 
     public User save(User user) {
+        user.setEvents(null);
         user.setUserStatus(UserStatus.NEUTRAL); //Default NEUTRAL Status
         return userRepository.save(user);
     }
@@ -36,10 +37,19 @@ public class UserService {
         return optionalUser.get();
     }
 
+    public List<Event> getUserEventById(Long id) {
+        var optionalUser = userRepository.findById(id);
+
+        if (optionalUser.isEmpty()) {
+            throw new NoSuchElementException("There's no User with given id");
+        }
+        return optionalUser.get().getEvents();
+    }
+
     public User updateUserById(long id, User user) throws Exception {
         if (user != null) {
             User updatedUser = userRepository.findById(id).orElseThrow();
-            updatedUser.setIdUser(id);
+            updatedUser.setId(id);
             updatedUser.setNickname(user.getNickname());
             updatedUser.setPoints(user.getPoints());
             userRepository.save(updatedUser);
@@ -98,7 +108,8 @@ public class UserService {
         User host = getUserById(userId);
         event.setCompleted(false);
         Event newEvent = eventRepository.save(event);
-        host.setEvent(newEvent);
+        host.getEvents().add(newEvent);
+        //host.setEvents(newEvent);
         newEvent.getParticipants().add(host);
         userRepository.save(host);
         return eventRepository.save(newEvent);
@@ -111,8 +122,8 @@ public class UserService {
         if (event.isEmpty() || user.isEmpty()) {
             throw new NoSuchElementException("Nie ma takiego eventu lub usera");
         }
-        updateUserStatus(user.get().getIdUser(), UserStatus.PARTICIPANT);
-        user.get().setEvent(event.get());
+        updateUserStatus(user.get().getId(), UserStatus.PARTICIPANT);
+        user.get().getEvents().add(event.get());
         userRepository.save(user.get());
         event.get().getParticipants().add(user.get());
         return eventRepository.save(event.get());
@@ -140,8 +151,8 @@ public class UserService {
 /*                if (p.getUserStatus().equals(UserStatus.HOST)) {
                     updateUserStatus(p.getIdUser(), UserStatus.NEUTRAL);
                 }*/
-                updateUserStatus(p.getIdUser(), UserStatus.NEUTRAL);
-                p.setEvent(null); //TODO: sprawdzic czy null dla tego eventu czy dal wszystkich
+                updateUserStatus(p.getId(), UserStatus.NEUTRAL);
+                p.setEvents(null); //TODO: sprawdzic czy null dla tego eventu czy dal wszystkich
                 userRepository.save(p);
             } catch (Exception e) {
                 throw new RuntimeException(e.getMessage());
