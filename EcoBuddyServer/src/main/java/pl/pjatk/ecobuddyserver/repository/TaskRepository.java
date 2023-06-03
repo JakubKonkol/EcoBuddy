@@ -7,7 +7,6 @@ import pl.pjatk.ecobuddyserver.model.Task;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface TaskRepository extends JpaRepository<Task, Long> {
@@ -15,5 +14,5 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
     List<Task> findRandomTasks();
 
 
-    List<Task> getByCompltionDate(LocalDateTime compltionDate);
+    List<Task> getByCompletionDate(LocalDateTime completionDate);
 }

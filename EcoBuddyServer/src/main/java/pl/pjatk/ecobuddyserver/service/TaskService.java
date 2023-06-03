@@ -53,8 +53,8 @@ public class TaskService {
 
             taskToUpdate.setStatus(updatedTask.getStatus());
         }
-        if(updatedTask.getCompltionDate() != null){
-            taskToUpdate.setCompltionDate(updatedTask.getCompltionDate());
+        if(updatedTask.getCompletionDate() != null){
+            taskToUpdate.setCompletionDate(updatedTask.getCompletionDate());
         }
 
         return taskRepository.save(taskToUpdate);
@@ -82,7 +82,7 @@ public class TaskService {
 
         return randomTasks;
     }
-    public List<Task> getByCompltionDate(LocalDateTime compltionDate ){
-        return taskRepository.getByCompltionDate(compltionDate);
+    public List<Task> getByCompletionDate(LocalDateTime completionDate ){
+        return taskRepository.getByCompletionDate(completionDate);
     }
 }
