@@ -5,6 +5,7 @@ import lombok.Data;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Data
@@ -21,5 +22,7 @@ public class Event {
     private LocalDateTime date;
     @Column
     private String img;
+
+
 
 }
