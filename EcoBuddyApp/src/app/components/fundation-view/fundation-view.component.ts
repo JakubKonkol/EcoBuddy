@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output, Renderer2} from '@angular/core';
 import {Goal} from "../../shared/Goal";
+import {IGoal} from "../../shared/IGoal";
 
 @Component({
   selector: 'app-fundation-view',
@@ -7,9 +8,9 @@ import {Goal} from "../../shared/Goal";
   styleUrls: ['./fundation-view.component.css']
 })
 export class FundationViewComponent implements OnInit{
-  @Input() goals!: Goal[];
+  @Input() goals!: IGoal[];
   @Output() closeSignal = new EventEmitter<void>();
-  @Output() goalSignal = new EventEmitter<Goal>();
+  @Output() goalSignal = new EventEmitter<IGoal>();
   ngOnInit(): void {
 
   }
@@ -17,7 +18,7 @@ export class FundationViewComponent implements OnInit{
     this.closeSignal.emit();
   }
 
-  setGoal(goal: Goal) {
+  setGoal(goal: IGoal) {
     this.goalSignal.emit(goal);
   }
 
