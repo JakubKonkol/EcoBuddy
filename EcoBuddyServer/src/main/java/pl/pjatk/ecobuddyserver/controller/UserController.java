@@ -30,6 +30,11 @@ public class UserController {
         return ResponseEntity.ok(userService.getUserById(userId));
     }
 
+    @GetMapping("/findUserEventsById/{userId}")
+    public ResponseEntity<List<Event>> getUserEvents(@PathVariable long userId) {
+        return ResponseEntity.ok(userService.getUserEventById(userId));
+    }
+
     @PutMapping("/update/{userId}")
     public ResponseEntity<User> updateUser(@PathVariable long userId,
                                            @RequestBody User user) throws Exception {
