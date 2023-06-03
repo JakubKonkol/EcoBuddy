@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.pjatk.ecobuddyserver.model.Goal;
+import pl.pjatk.ecobuddyserver.model.enums.EventType;
 import pl.pjatk.ecobuddyserver.service.GoalService;
 
 import java.util.List;
@@ -53,8 +54,12 @@ public class GoalController {
         Goal goal = goalService.addMoney(id);
         return ResponseEntity.ok(goal);
     }
-    @GetMapping("/{city}")
-    public ResponseEntity<Goal> findGoalByCity(@PathVariable("city") String city){
-        return  ResponseEntity.ok(goalService.findGoalByCity(city));
+    @GetMapping("/getByCity/{city}")
+    public ResponseEntity<List<Goal>> findGoalsByCity(@PathVariable("city") String city){
+        return  ResponseEntity.ok(goalService.findGoalsByCity(city));
+    }
+    @GetMapping("/getByType/{type}")
+    public ResponseEntity<List<Goal>> findGoalsByType(@RequestParam(name = "type") EventType type){
+        return  ResponseEntity.ok(goalService.findGoalsByType(type));
     }
 }

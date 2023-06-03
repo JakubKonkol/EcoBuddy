@@ -3,6 +3,7 @@ package pl.pjatk.ecobuddyserver.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.pjatk.ecobuddyserver.model.Goal;
+import pl.pjatk.ecobuddyserver.model.enums.EventType;
 import pl.pjatk.ecobuddyserver.repository.GoalRepository;
 
 import java.util.List;
@@ -83,12 +84,12 @@ public class GoalService {
 
 
     }
-    public Goal findGoalByCity(String city){
-        Optional<Goal> goal = goalRepository.findGoalByCity(city);
-        if(goal.isPresent()){
-            return  goal.get();
-        }
-        throw new IllegalArgumentException();
+    public List<Goal> findGoalsByCity(String city){
+      return goalRepository.findGoalsByCity(city);
+    }
+
+    public List<Goal> findGoalsByType(EventType type){
+return goalRepository.findGoalsByType(type);
     }
 
 
