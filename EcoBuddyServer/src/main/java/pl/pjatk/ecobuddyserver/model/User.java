@@ -20,5 +20,5 @@ public class User {
     @JoinColumn(name = "id_event")
     @JsonIgnore
     private Event event;
-
 }
+

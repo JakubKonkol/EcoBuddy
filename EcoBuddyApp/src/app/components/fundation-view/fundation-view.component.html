@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="modal-content">
+    <h1> Wybierz cel zbiórki na który chcesz przekazać kliknięcie</h1>
+    <div class="goals">
+      <div class="single-goal" *ngFor="let goal of goals">
+        <div class="goal-title">{{goal.name}} </div>
+        <div class="goal-fundation"> {{goal.fundation}}</div>
+        <div class="goal-city">{{goal.city}}</div>
+        <div class="goal-summary">Zebrane {{goal.collectedAmount}}/{{goal.targetAmount}}PLN</div>
+      </div>
+    </div>
+    <button class="close-btn" (click)="emitClose()">Close</button>
+  </div>
+</div>

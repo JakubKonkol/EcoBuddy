@@ -1,10 +1,12 @@
 package pl.pjatk.ecobuddyserver.controller;
 
+import jakarta.persistence.PostUpdate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.pjatk.ecobuddyserver.model.Event;
 import pl.pjatk.ecobuddyserver.model.User;
+import pl.pjatk.ecobuddyserver.model.enums.Status;
 import pl.pjatk.ecobuddyserver.service.UserService;
 
 import java.util.List;
@@ -37,15 +39,17 @@ public class UserController {
 
     @DeleteMapping("/deleteById{userId}")
     public ResponseEntity<String> deleteUser(@PathVariable long userId) {
+
         userService.deleteUserById(userId);
         return ResponseEntity.ok("User of id: " + userId + " has been deleted");
     }
-
-    @PutMapping("/updateUserPoints/{userId}/{points}")
-    public ResponseEntity<String> updateUserPoints(@PathVariable Long userId,
-                                                 @PathVariable Long points) throws Exception {
-        userService.updateUserPoints(userId,points);
-        return ResponseEntity.ok("Added " + points + " to user " + userId + " account");
+    @PutMapping("/updatePoints/{userId}/{userPoints}")
+    public ResponseEntity<User> updatePoints(@PathVariable long userId, @PathVariable long userPoints) throws Exception {
+        return ResponseEntity.ok(userService.updateUserPoints(userId, userPoints));
+    }
+    @PutMapping("/addPoint/{userId}")
+    public ResponseEntity<User> addPoint(@PathVariable long userId) throws Exception {
+        return ResponseEntity.ok(userService.addOneUserPoint(userId));
     }
 
     @PostMapping("createEvent/{userId}")

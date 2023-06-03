@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.List;
+
 
 @Entity
 @Data
@@ -23,6 +23,8 @@ public class Event {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "event")
     @JsonIgnore
     private List<User> participants = new ArrayList<>();
+
+
 
 
 }
