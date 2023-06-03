@@ -14,7 +14,8 @@ import { ListekComponent } from './components/listek/listek.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MainBuddyViewComponent } from './components/main-buddy-view/main-buddy-view.component';
 import { FundationViewComponent } from './components/fundation-view/fundation-view.component';
-import { GoalSupportedModalComponent } from './components/goal-supported-modal/goal-supported-modal.component'
+import { GoalSupportedModalComponent } from './components/goal-supported-modal/goal-supported-modal.component';
+import { EventsViewComponent } from './components/events-view/events-view.component'
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { GoalSupportedModalComponent } from './components/goal-supported-modal/g
     ListekComponent,
     MainBuddyViewComponent,
     FundationViewComponent,
-    GoalSupportedModalComponent
+    GoalSupportedModalComponent,
+    EventsViewComponent
   ],
   imports: [
     BrowserModule,
