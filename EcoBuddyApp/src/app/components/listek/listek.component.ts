@@ -1,25 +1,28 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {EType, Goal} from "../../shared/Goal";
 import {Router} from "@angular/router";
+import {GoalService} from "../../services/goal.service";
+import {IGoal} from "../../shared/IGoal";
 
 @Component({
   selector: 'app-listek',
   templateUrl: './listek.component.html',
   styleUrls: ['./listek.component.css']
 })
-export class ListekComponent {
+export class ListekComponent implements OnInit{
   userSelectedGoal: boolean = false;
-  constructor(private router: Router) {
+  constructor(private router: Router, private goalService: GoalService) {
 
   }
-  goals: Goal[] =[
-    new Goal(1, 'Pomoc osobom w trudnej sytuacji życiowej', 'Warszawa', EType.SOCIAL, 3000, 10000, 'Fundacja "Dla dzieci"', 'Cel i misja: Pomoc dzieciom z ubogich rodzin.'),
-    new Goal(2, 'Pomoc dzieciom z ubogich rodzin', 'Warszawa', EType.SOCIAL, 0, 10000, 'Fundacja "Dla dzieci"', 'Cel i misja: Pomoc dzieciom z ubogich rodzin.'),
-    new Goal(3, 'Pomoc osobom niepełnosprawnym', 'Warszawa', EType.SOCIAL, 0, 10000, 'Fundacja "Dla dzieci"', 'Cel i misja: Pomoc dzieciom z ubogich rodzin.'),
-    new Goal(4, 'Pomoc osobom w trudnej sytuacji życiowej', 'Warszawa', EType.SOCIAL, 0, 10000, 'Fundacja "Dla dzieci"', 'Cel i misja: Pomoc dzieciom z ubogich rodzin.'),
-    new Goal(5, 'Pomoc osobom w trudnej sytuacji życiowej', 'Warszawa', EType.SOCIAL, 0, 10000, 'Fundacja "Dla dzieci"', 'Cel i misja: Pomoc dzieciom z ubogich rodzin.'),
-  ]
-  selectedGoal: Goal = this.goals[Math.floor(Math.random() * this.goals.length)];
+  // goals: Goal[] =[
+  //   new Goal(1, 'Pomoc osobom w trudnej sytuacji życiowej', 'Warszawa', EType.SOCIAL, 3000, 10000, 'Fundacja "Dla dzieci"', 'Cel i misja: Pomoc dzieciom z ubogich rodzin.'),
+  //   new Goal(2, 'Pomoc dzieciom z ubogich rodzin', 'Warszawa', EType.SOCIAL, 0, 10000, 'Fundacja "Dla dzieci"', 'Cel i misja: Pomoc dzieciom z ubogich rodzin.'),
+  //   new Goal(3, 'Pomoc osobom niepełnosprawnym', 'Warszawa', EType.SOCIAL, 0, 10000, 'Fundacja "Dla dzieci"', 'Cel i misja: Pomoc dzieciom z ubogich rodzin.'),
+  //   new Goal(4, 'Pomoc osobom w trudnej sytuacji życiowej', 'Warszawa', EType.SOCIAL, 0, 10000, 'Fundacja "Dla dzieci"', 'Cel i misja: Pomoc dzieciom z ubogich rodzin.'),
+  //   new Goal(5, 'Pomoc osobom w trudnej sytuacji życiowej', 'Warszawa', EType.SOCIAL, 0, 10000, 'Fundacja "Dla dzieci"', 'Cel i misja: Pomoc dzieciom z ubogich rodzin.'),
+  // ]
+  goals: IGoal[] = [];
+  selectedGoal: IGoal = this.goals[Math.floor(Math.random() * this.goals.length)];
   shoudModalBeActive: boolean = false;
   userSupported: boolean = false;
   liscState: string = 'assets/listek_fixed.png';
@@ -49,7 +52,7 @@ export class ListekComponent {
     }
   }
 
-  setGoal($event: Goal) {
+  setGoal($event: IGoal) {
     this.selectedGoal = $event;
     this.userSelectedGoal = true;
     this.shoudModalBeActive = false;
@@ -60,8 +63,23 @@ export class ListekComponent {
   }
 
   supportGoal() {
-    let id = this.selectedGoal.id;
+    let id = this.selectedGoal.idGoal;
     //req /goals/id/add-money  TODO
     this.userSupported = true;
+    this.goalService.addMoneyToGoal(this.selectedGoal).subscribe(data => {
+      console.log(data);
+    });
+    this.goalService.getGoals().subscribe(data => {
+      this.goals = data;
+      this.selectedGoal = this.goals[Math.floor(Math.random() * this.goals.length)];
+    });
+
+  }
+
+  ngOnInit(): void {
+    this.goalService.getGoals().subscribe(data => {
+      this.goals = data;
+      this.selectedGoal = this.goals[Math.floor(Math.random() * this.goals.length)];
+    });
   }
 }
