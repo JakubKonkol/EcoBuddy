@@ -8,11 +8,12 @@ import {Router} from "@angular/router";
   styleUrls: ['./listek.component.css']
 })
 export class ListekComponent {
+  userSelectedGoal: boolean = false;
   constructor(private router: Router) {
 
   }
   goals: Goal[] =[
-    new Goal(1, 'Pomoc osobom w trudnej sytuacji życiowej', 'Warszawa', EType.SOCIAL, 0, 10000, 'Fundacja "Dla dzieci"', 'Cel i misja: Pomoc dzieciom z ubogich rodzin.'),
+    new Goal(1, 'Pomoc osobom w trudnej sytuacji życiowej', 'Warszawa', EType.SOCIAL, 3000, 10000, 'Fundacja "Dla dzieci"', 'Cel i misja: Pomoc dzieciom z ubogich rodzin.'),
     new Goal(2, 'Pomoc dzieciom z ubogich rodzin', 'Warszawa', EType.SOCIAL, 0, 10000, 'Fundacja "Dla dzieci"', 'Cel i misja: Pomoc dzieciom z ubogich rodzin.'),
     new Goal(3, 'Pomoc osobom niepełnosprawnym', 'Warszawa', EType.SOCIAL, 0, 10000, 'Fundacja "Dla dzieci"', 'Cel i misja: Pomoc dzieciom z ubogich rodzin.'),
     new Goal(4, 'Pomoc osobom w trudnej sytuacji życiowej', 'Warszawa', EType.SOCIAL, 0, 10000, 'Fundacja "Dla dzieci"', 'Cel i misja: Pomoc dzieciom z ubogich rodzin.'),
@@ -20,6 +21,7 @@ export class ListekComponent {
   ]
   selectedGoal: Goal = this.goals[Math.floor(Math.random() * this.goals.length)];
   shoudModalBeActive: boolean = false;
+  userSupported: boolean = false;
   liscState: string = 'assets/listek_fixed.png';
   goto(url:string){
     this.router.navigateByUrl(url).then(r => console.log(r));
@@ -45,5 +47,21 @@ export class ListekComponent {
         this.liscState = 'assets/listek_fixed.png';
 
     }
+  }
+
+  setGoal($event: Goal) {
+    this.selectedGoal = $event;
+    this.userSelectedGoal = true;
+    this.shoudModalBeActive = false;
+  }
+
+  closeSupportedModal() {
+    this.userSupported = false;
+  }
+
+  supportGoal() {
+    let id = this.selectedGoal.id;
+    //req /goals/id/add-money  TODO
+    this.userSupported = true;
   }
 }

@@ -13,7 +13,9 @@ import { EcoHomeResultViewComponent } from './components/eco-home-result-view/ec
 import { ListekComponent } from './components/listek/listek.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MainBuddyViewComponent } from './components/main-buddy-view/main-buddy-view.component';
-import { FundationViewComponent } from './components/fundation-view/fundation-view.component'
+import { FundationViewComponent } from './components/fundation-view/fundation-view.component';
+import { GoalSupportedModalComponent } from './components/goal-supported-modal/goal-supported-modal.component';
+import { EventsViewComponent } from './components/events-view/events-view.component'
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { FundationViewComponent } from './components/fundation-view/fundation-vi
     EcoHomeResultViewComponent,
     ListekComponent,
     MainBuddyViewComponent,
-    FundationViewComponent
+    FundationViewComponent,
+    GoalSupportedModalComponent,
+    EventsViewComponent
   ],
   imports: [
     BrowserModule,
