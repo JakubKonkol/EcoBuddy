@@ -1,7 +1,6 @@
 package pl.pjatk.ecobuddyserver.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import pl.pjatk.ecobuddyserver.model.Event;
 import pl.pjatk.ecobuddyserver.model.User;
@@ -9,7 +8,6 @@ import pl.pjatk.ecobuddyserver.model.enums.UserStatus;
 import pl.pjatk.ecobuddyserver.repository.EventRepository;
 import pl.pjatk.ecobuddyserver.repository.UserRepository;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
