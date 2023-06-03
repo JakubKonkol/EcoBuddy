@@ -7,6 +7,7 @@ import pl.pjatk.ecobuddyserver.repository.GoalRepository;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -82,6 +83,14 @@ public class GoalService {
 
 
     }
+    public Goal findGoalByCity(String city){
+        Optional<Goal> goal = goalRepository.findGoalByCity(city);
+        if(goal.isPresent()){
+            return  goal.get();
+        }
+        throw new IllegalArgumentException();
+    }
+
 
 
 }

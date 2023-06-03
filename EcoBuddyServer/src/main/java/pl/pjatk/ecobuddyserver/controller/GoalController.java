@@ -53,4 +53,8 @@ public class GoalController {
         Goal goal = goalService.addMoney(id);
         return ResponseEntity.ok(goal);
     }
+    @GetMapping("/{city}")
+    public ResponseEntity<Goal> findGoalByCity(@PathVariable("city") String city){
+        return  ResponseEntity.ok(goalService.findGoalByCity(city));
+    }
 }

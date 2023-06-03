@@ -79,3 +79,8 @@ drop table if exists event;
 drop table if exists goal;
 drop table if exists task;
 drop table if exists user;
+alter table task drop foreign key FK7ilhurfgk0scjjdcym9gtfvc8;
+drop table if exists event;
+drop table if exists goal;
+drop table if exists task;
+drop table if exists user;

@@ -13,3 +13,8 @@ create table goal (money_collected float(53) not null, money_needed float(53) no
 create table task (priority tinyint, status tinyint, completion_date datetime(6), id_task bigint not null auto_increment, id_user bigint, description varchar(255), primary key (id_task)) engine=InnoDB;
 create table user (id_user bigint not null auto_increment, points bigint, nickname varchar(255), primary key (id_user)) engine=InnoDB;
 alter table task add constraint FK7ilhurfgk0scjjdcym9gtfvc8 foreign key (id_user) references user (id_user);
+create table event (date datetime(6), id_event bigint not null auto_increment, description varchar(255), img varchar(255), location varchar(255), primary key (id_event)) engine=InnoDB;
+create table goal (money_collected float(53) not null, money_needed float(53) not null, type tinyint, id_goal bigint not null auto_increment, city varchar(255), description varchar(255), foundation_name varchar(255), name varchar(255), primary key (id_goal)) engine=InnoDB;
+create table task (priority tinyint, status tinyint, completion_date datetime(6), id_task bigint not null auto_increment, id_user bigint, description varchar(255), primary key (id_task)) engine=InnoDB;
+create table user (id_user bigint not null auto_increment, points bigint, nickname varchar(255), primary key (id_user)) engine=InnoDB;
+alter table task add constraint FK7ilhurfgk0scjjdcym9gtfvc8 foreign key (id_user) references user (id_user);
