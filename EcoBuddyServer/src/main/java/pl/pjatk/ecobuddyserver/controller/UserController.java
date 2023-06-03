@@ -39,4 +39,11 @@ public class UserController {
         userService.deleteUserById(userId);
         return ResponseEntity.ok("User of id: " + userId + " has been deleted");
     }
+
+    @PutMapping("/updateUserPoints/{userId}/{points}")
+    public ResponseEntity<String> updateUserPoints(@PathVariable Long userId,
+                                                 @PathVariable Long points) throws Exception {
+        userService.updateUserPoints(userId,points);
+        return ResponseEntity.ok("Added " + points + " to user " + userId + " account");
+    }
 }

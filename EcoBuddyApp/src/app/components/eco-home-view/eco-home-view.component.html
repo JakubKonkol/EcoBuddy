@@ -16,15 +16,20 @@
     </div>
   </div>
   <div class="result">
-    *result*
+    <app-eco-home-result-view
+      [userPowerUsage]="calculateDailyPowerUsage()" />
   </div>
 </div>
 
 <div class="modal" *ngIf="shouldModalBeActive && selectedDevice != undefined">
   <div class="modal-content">
     <img src="assets/responsive.png" width="100px" height="100px" rel="device">
-    <h1> {{selectedDevice.name}}</h1>
-    <p> {{selectedDevice.powerUsage}}kW/h</p>
-    <button (click)="addDevice()"> Add Device </button>
+    <h1 class="device-title"> {{selectedDevice.name}}</h1>
+    <p class="device-power"> {{selectedDevice.powerUsage}}kW/h</p>
+    <div class="buttons">
+      <button class="close-btn" (click)="closeModal()"> Close </button>
+      <button class="add-btn" (click)="addDevice()"> Add Device </button>
+    </div>
+
   </div>
 </div>

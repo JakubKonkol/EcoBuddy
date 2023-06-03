@@ -10,7 +10,7 @@ export class DeviceLoader{
     for (let device of deviceList){
       this.devices.push(new Device(
         device.nazwa,
-        device.pobor_mocy
+        device.pobor_mocy/1000
       ));
     }
   }
