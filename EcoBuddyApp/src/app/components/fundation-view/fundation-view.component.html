@@ -2,15 +2,15 @@
   <div class="modal-content">
     <h1> Wybierz cel zbiórki na który chcesz przekazać kliknięcie</h1>
     <div class="goals">
-      <div class="single-goal" *ngFor="let goal of goals" (click)="setGoal(goal)" [ngStyle]="{'background-position-y':random()}">
+      <div class="single-goal" *ngFor="let goal of goals" (click)="setGoal(goal)" [ngStyle]="{'background-position-y':getRandomOffset()}">
         <div class="goal-title">{{goal.name}} </div>
-        <div class="goal-fundation"> {{goal.fundation}}</div>
+        <div class="goal-fundation"> {{goal.foundationName}}</div>
         <div class="goal-city">{{goal.city}}</div>
 <!--        EXPERIMENTAL-->
-        <p class="money-txt"> Zebrane {{goal.collectedAmount}}/{{goal.targetAmount}}PLN</p>
+        <p class="money-txt"> Zebrane {{goal.moneyCollected.toFixed(2)}}/{{goal.moneyNeeded}}PLN</p>
         <div class="money-bar">
-          <div class="money" [ngStyle]="{'width.%': goal.collectedAmount / goal.targetAmount * 100}"></div>
-          <div class="money-empty" [ngStyle]="{'width.%': (1 - goal.collectedAmount / goal.targetAmount) * 100}"></div>
+          <div class="money" [ngStyle]="{'width.%': goal.moneyCollected / goal.moneyNeeded * 100}"></div>
+          <div class="money-empty" [ngStyle]="{'width.%': (1 - goal.moneyCollected / goal.moneyNeeded) * 100}"></div>
         </div>
 <!--        <div class="goal-summary">Zebrane {{goal.collectedAmount}}/{{goal.targetAmount}}PLN</div>-->
       </div>

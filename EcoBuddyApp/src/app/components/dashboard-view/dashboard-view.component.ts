@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard-view.component.css']
 })
 export class DashboardViewComponent {
-    viewState = 'ECOHOME'; //SHOULD BE DEFAULT
+    viewState = 'PROFILE'; //SHOULD BE DEFAULT
 
   setViewState(arg: string) {
     this.viewState = arg;

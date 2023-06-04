@@ -53,8 +53,7 @@ public class GoalController {
         Goal goal = goalService.updateGoal(id, updatedGoal);
         return ResponseEntity.ok(goal);
     }
-
-    @PatchMapping("/addMoneyToGoal/{id}")
+    @PutMapping("/addMoneyToGoal/{id}")
     public ResponseEntity<Goal> addMoneyToGoal(@PathVariable("id") Long id) {
         Goal goal = goalService.addMoney(id);
         return ResponseEntity.ok(goal);
