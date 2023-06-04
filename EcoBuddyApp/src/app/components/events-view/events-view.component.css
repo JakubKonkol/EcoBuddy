@@ -1,0 +1,74 @@
+.container{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  overflow-y: scroll;
+}
+.single-event{
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: #A2C82C;
+}
+.location{
+  background-color: #191919;
+  padding: 0.1rem;
+}
+.event-desc{
+  font-family: "Helvetica Neue Medium Extended", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  margin: 0.5rem;
+}
+.event-date{
+  margin: 0.5rem;
+  font-family: "Helvetica Neue Medium Extended", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+}
+.event-location{
+  margin: 0.5rem;
+  font-family: "Helvetica Neue Medium Extended", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+}
+.signup-btn{
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 10px;
+  background-color: #ffcc00;
+  font-family: "Helvetica Neue Medium Extended", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  border: 1px solid #bd9805;
+  transition: background-color 0.2s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.signup-btn:hover{
+  background-color: #e8b600;
+  cursor: pointer;
+  scale: 1.01;
+}
+.create-event-btn{
+  margin-inline: auto;
+  justify-content: center;
+  display: flex;
+  border: 1px solid #bd9805;
+  padding: 1rem 25rem;
+  border-radius: 15px;
+  background-color: #ffcc00;
+  font-family: "Helvetica Neue Medium Extended", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.3rem;
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+.create-event-btn:hover{
+  background-color: #e8b600;
+  cursor: pointer;
+  scale: 1.01;
+}

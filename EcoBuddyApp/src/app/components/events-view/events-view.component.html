@@ -1,1 +1,20 @@
-<p>events-view works!</p>
+<button class="create-event-btn"> Stwórz Własne Wydarzenie </button>
+<div class="container">
+  <div class="single-event" *ngFor="let event of events">
+    <p class="event-desc"> {{event.description}} {{event.id}}</p>
+    <p class="event-date"> Data wydarzenia: {{formatDate(event.date)}}</p>
+    <p class="event-location"> {{event.location}}</p>
+    <button class="signup-btn"> Zapisz się!</button>
+<!--    <div class="location">-->
+<!--      <iframe-->
+<!--        height="150"-->
+<!--        style="border:0"-->
+<!--        loading="lazy"-->
+<!--        allowfullscreen-->
+<!--        referrerpolicy="no-referrer-when-downgrade"-->
+<!--        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8-->
+<!--    &q=Space+Needle,Seattle+WA">-->
+<!--      </iframe>-->
+<!--    </div>-->
+  </div>
+</div>
