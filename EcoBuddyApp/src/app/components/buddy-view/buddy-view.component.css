@@ -23,4 +23,7 @@
 }
 .tasks{
   flex-basis: 50%;
+  display: flex;
+  justify-content: center;
+
 }

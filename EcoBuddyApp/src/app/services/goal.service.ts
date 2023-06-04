@@ -10,9 +10,9 @@ export class GoalService{
   private baseUrl:string = 'http://localhost:8080/goals';
   constructor(private http:HttpClient) { }
   public getGoals():Observable<IGoal[]>{
-    return this.http.get<IGoal[]>(this.baseUrl);
+    return this.http.get<IGoal[]>(this.baseUrl+'/getAllGoals');
   }
   public addMoneyToGoal(goal: IGoal):Observable<IGoal>{
-    return this.http.put<IGoal>(this.baseUrl + '/' + goal.id + '/add-money', goal);
+    return this.http.put<IGoal>(this.baseUrl + '/addMoneyToGoal/' + goal.id, goal);
   }
 }

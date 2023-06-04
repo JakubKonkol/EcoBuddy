@@ -14,9 +14,9 @@ export class ProfileViewComponent implements OnInit{
   }
   goalHistory = this.goalHistoryService.goalHistory;
   tasks: Task[] = [
-    new Task(1, "Task 2", EPriority.HIGH, EStatus.TODO),
-    new Task(2, "Task 3", EPriority.MEDIUM, EStatus.IN_PROGRESS),
-    new Task(3, "Task 4", EPriority.LOW, EStatus.DONE),
+    new Task(1, "Wyrzuc smiecia", EPriority.HIGH, EStatus.TODO),
+    new Task(2, "Zabij kogos kto smieci", EPriority.MEDIUM, EStatus.IN_PROGRESS),
+    new Task(3, "Zatrzymaj topnienie lodowca", EPriority.LOW, EStatus.DONE),
   ]
   ngOnInit(): void {
 
