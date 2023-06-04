@@ -29,7 +29,6 @@ public class GoalController {
         List<Goal> createdGoal = goalService.saveGoalList(goal);
         return ResponseEntity.ok(createdGoal);
     }
-
     @GetMapping("/getAllGoals")
     public ResponseEntity<List<Goal>> getAllGoals() {
         List<Goal> goals = goalService.findAll();
