@@ -10,44 +10,43 @@ import pl.pjatk.ecobuddyserver.service.GoalService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/goals")
+@RequestMapping("/api/v1/goal")
 public class GoalController {
-
     private final GoalService goalService;
-
     public GoalController(GoalService goalService) {
         this.goalService = goalService;
     }
 
-    @PostMapping("/createSingleGoal")
+    @PostMapping("/create")
     public ResponseEntity<Goal> createGoal(@RequestBody Goal goal) {
         Goal createdGoal = goalService.save(goal);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdGoal);
     }
-    @PostMapping("/createManyGoals")
+    @PostMapping("/createMany")
     public ResponseEntity<List<Goal>> createManyGoals(@RequestBody List<Goal> goal) {
         List<Goal> createdGoal = goalService.saveGoalList(goal);
         return ResponseEntity.ok(createdGoal);
     }
-    @GetMapping("/getAllGoals")
+
+    @GetMapping("/findAll")
     public ResponseEntity<List<Goal>> getAllGoals() {
         List<Goal> goals = goalService.findAll();
         return ResponseEntity.ok(goals);
     }
 
-    @GetMapping("/getGoalById/{id}")
+    @GetMapping("/findById/{id}")
     public ResponseEntity<Goal> getGoalById(@PathVariable("id") Long id) {
         Goal goal = goalService.getGoalById(id);
         return ResponseEntity.ok(goal);
     }
 
-    @DeleteMapping("/deleteGoalById/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteGoalById(@PathVariable("id") Long id) {
         goalService.deleteGoalById(id);
         return ResponseEntity.noContent().build();
     }
 
-    @PutMapping("/updateGoalById/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<Goal> updateGoal(@PathVariable("id") Long id, @RequestBody Goal updatedGoal) {
         Goal goal = goalService.updateGoal(id, updatedGoal);
         return ResponseEntity.ok(goal);
