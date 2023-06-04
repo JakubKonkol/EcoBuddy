@@ -2,7 +2,7 @@
   <div class="modal-content">
     <h1> Wybierz cel zbiórki na który chcesz przekazać kliknięcie</h1>
     <div class="goals">
-      <div class="single-goal" *ngFor="let goal of goals" (click)="setGoal(goal)" [ngStyle]="{'background-position-y':random()}">
+      <div class="single-goal" *ngFor="let goal of goals" (click)="setGoal(goal)" [ngStyle]="{'background-position-y':getRandomOffset()}">
         <div class="goal-title">{{goal.name}} </div>
         <div class="goal-fundation"> {{goal.foundationName}}</div>
         <div class="goal-city">{{goal.city}}</div>

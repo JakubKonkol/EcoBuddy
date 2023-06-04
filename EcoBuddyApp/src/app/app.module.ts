@@ -17,6 +17,9 @@ import { FundationViewComponent } from './components/fundation-view/fundation-vi
 import { GoalSupportedModalComponent } from './components/goal-supported-modal/goal-supported-modal.component';
 import { EventsViewComponent } from './components/events-view/events-view.component'
 import {HttpClientModule} from "@angular/common/http";
+import { ProfileViewComponent } from './components/profile-view/profile-view.component';
+import {GoalHistoryService} from "./services/goalHistory.service";
+import {GoalService} from "./services/goal.service";
 
 @NgModule({
   declarations: [
@@ -32,14 +35,18 @@ import {HttpClientModule} from "@angular/common/http";
     MainBuddyViewComponent,
     FundationViewComponent,
     GoalSupportedModalComponent,
-    EventsViewComponent
+    EventsViewComponent,
+    ProfileViewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    GoalHistoryService,
+    GoalService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

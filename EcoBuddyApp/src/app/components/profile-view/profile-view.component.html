@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="history">
+    <p> Zbiórki którym pomogłeś </p>
+      <div class="singleGoal" *ngFor="let goal of goalHistory">
+        {{goal.description}}
+      </div>
+  </div>
+  <div class="tasks">
+    <p> Co jeszcze możesz zrobić dla świata </p>
+      <app-single-task-view *ngFor="let task of tasks" [task]="task"/>
+  </div>
+</div>

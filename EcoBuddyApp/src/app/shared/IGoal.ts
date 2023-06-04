@@ -5,7 +5,7 @@ enum EventType {
 }
 
 export interface IGoal{
-  idGoal: number;
+  id: number;
   name: string;
   city: string;
   type: EventType

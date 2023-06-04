@@ -22,7 +22,7 @@ export class FundationViewComponent implements OnInit{
     this.goalSignal.emit(goal);
   }
 
-  random():string {
+  getRandomOffset():string {
     let random = Math.floor(Math.random() * 100) + 1
     return `${random}%`;
   }

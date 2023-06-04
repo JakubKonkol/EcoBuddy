@@ -3,6 +3,7 @@ import {EType, Goal} from "../../shared/Goal";
 import {Router} from "@angular/router";
 import {GoalService} from "../../services/goal.service";
 import {IGoal} from "../../shared/IGoal";
+import {GoalHistoryService} from "../../services/goalHistory.service";
 
 @Component({
   selector: 'app-listek',
@@ -11,7 +12,7 @@ import {IGoal} from "../../shared/IGoal";
 })
 export class ListekComponent implements OnInit{
   userSelectedGoal: boolean = false;
-  constructor(private router: Router, private goalService: GoalService) {
+  constructor(private router: Router, private goalService: GoalService, private goalHistoryService: GoalHistoryService) {
 
   }
   // goals: Goal[] =[
@@ -63,7 +64,8 @@ export class ListekComponent implements OnInit{
   }
 
   supportGoal() {
-    let id = this.selectedGoal.idGoal;
+    let id = this.selectedGoal.id;
+    this.goalHistoryService.addGoalToHistory(this.selectedGoal);
     //req /goals/id/add-money  TODO
     this.userSupported = true;
     this.goalService.addMoneyToGoal(this.selectedGoal).subscribe(data => {
@@ -73,6 +75,7 @@ export class ListekComponent implements OnInit{
       this.goals = data;
       this.selectedGoal = this.goals[Math.floor(Math.random() * this.goals.length)];
     });
+
 
   }
 
