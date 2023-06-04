@@ -6,3 +6,45 @@
 .container > *{
   flex-basis: 50%;
 }
+.title-text{
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 0.25rem;
+  font-family: "Helvetica Neue Medium Extended", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.single-goal{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  /*background-color: beige;*/
+  margin: 1.5rem;
+  /*width: 50%;*/
+  /*height: 50%;*/
+  border-radius: 10px;
+  background-image: url("src/assets/background_tile.png");
+  background-size: 650px 350px;
+  transition: background-image 0.5s ease;
+}
+.goal-title{
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+.goal-fundation{
+  font-style: italic;
+}
+.goal-city{
+
+}
+.goal-summary{
+
+}
+.history{
+  overflow-y:scroll;
+  max-height: 100% ;
+}
+
