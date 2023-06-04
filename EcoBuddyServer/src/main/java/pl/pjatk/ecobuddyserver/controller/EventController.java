@@ -9,21 +9,19 @@ import pl.pjatk.ecobuddyserver.service.EventService;
 import java.util.List;
 
 @RestController
-
-
-@RequestMapping("/event")
+@RequestMapping("/api/v1/event")
 public class EventController {
     EventService eventService;
 
     @Autowired
     public EventController(EventService eventService){this.eventService = eventService;}
 
-    @GetMapping("/getAll")
+    @GetMapping("/findAll")
     public ResponseEntity<List<Event>> getAllEvent(){
         return ResponseEntity.ok(eventService.getAllEvent());
     }
 
-    @GetMapping("/getEventById/{id}")
+    @GetMapping("/findById/{id}")
     public ResponseEntity<Event> getEvent(@PathVariable("id") Long id){
         return ResponseEntity.ok(eventService.getEvent(id));
     }
