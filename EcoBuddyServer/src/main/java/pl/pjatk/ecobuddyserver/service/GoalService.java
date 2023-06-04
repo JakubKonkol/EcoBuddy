@@ -19,6 +19,11 @@ public class GoalService {
     public Goal save(Goal goal){
         return goalRepository.save(goal);}
 
+    public List<Goal> saveGoalList(List<Goal> goalList){
+        goalList.stream().forEach(p->goalRepository.save(p));
+        return goalList;
+    }
+
     public List<Goal> findAll(){return  goalRepository.findAll();}
 
     public Goal getGoalById(Long id){

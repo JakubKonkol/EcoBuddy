@@ -19,46 +19,51 @@ public class GoalController {
         this.goalService = goalService;
     }
 
-    @PostMapping
+    @PostMapping("/createSingleGoal")
     public ResponseEntity<Goal> createGoal(@RequestBody Goal goal) {
         Goal createdGoal = goalService.save(goal);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdGoal);
     }
+    @PostMapping("/createManyGoals")
+    public ResponseEntity<List<Goal>> createManyGoals(@RequestBody List<Goal> goal) {
+        List<Goal> createdGoal = goalService.saveGoalList(goal);
+        return ResponseEntity.ok(createdGoal);
+    }
 
-    @GetMapping
+    @GetMapping("/getAllGoals")
     public ResponseEntity<List<Goal>> getAllGoals() {
         List<Goal> goals = goalService.findAll();
         return ResponseEntity.ok(goals);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getGoalById/{id}")
     public ResponseEntity<Goal> getGoalById(@PathVariable("id") Long id) {
         Goal goal = goalService.getGoalById(id);
         return ResponseEntity.ok(goal);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deleteGoalById/{id}")
     public ResponseEntity<Void> deleteGoalById(@PathVariable("id") Long id) {
         goalService.deleteGoalById(id);
         return ResponseEntity.noContent().build();
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/updateGoalById/{id}")
     public ResponseEntity<Goal> updateGoal(@PathVariable("id") Long id, @RequestBody Goal updatedGoal) {
         Goal goal = goalService.updateGoal(id, updatedGoal);
         return ResponseEntity.ok(goal);
     }
 
-    @PatchMapping("/{id}/add-money")
+    @PatchMapping("/addMoneyToGoal/{id}")
     public ResponseEntity<Goal> addMoneyToGoal(@PathVariable("id") Long id) {
         Goal goal = goalService.addMoney(id);
         return ResponseEntity.ok(goal);
     }
-    @GetMapping("/getByCity/{city}")
+    @GetMapping("/findGoalsByCity/{city}")
     public ResponseEntity<List<Goal>> findGoalsByCity(@PathVariable("city") String city){
         return  ResponseEntity.ok(goalService.findGoalsByCity(city));
     }
-    @GetMapping("/getByType/{type}")
+    @GetMapping("/findGoalsByType/{type}")
     public ResponseEntity<List<Goal>> findGoalsByType(@RequestParam(name = "type") EventType type){
         return  ResponseEntity.ok(goalService.findGoalsByType(type));
     }
