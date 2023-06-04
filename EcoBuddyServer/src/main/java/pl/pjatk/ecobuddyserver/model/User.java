@@ -25,6 +25,7 @@ public class User {
     //@ManyToOne(fetch = FetchType.EAGER)
     //@JoinColumn(name = "id_event")
     //@JsonIgnore
+
     private List<Event> events;
 }
 
